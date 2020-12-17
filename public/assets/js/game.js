@@ -33,6 +33,13 @@ const ENEMY_VERTICAL_PADDING = 70;
 const ENEMY_VERTICAL_SPACING = 80;
 const ENEMY_COOLDOWN = 10.0;
 
+const TEAM_SCORE = {
+    teamName: "",
+    time: 0,
+    player1Score: GAME_STATE.score1,
+    player2Score: GAME_STATE.score2,
+}
+
 const GAME_STATE = {
     lastTime: Date.now(),
     gameOver: false,
@@ -47,7 +54,7 @@ const GAME_STATE = {
     upPressed: false,
     downPressed: false,
     spacePressed: false,
-    player1X: 0,
+    player1X: 0, 
     player1Y: 0,
     player1Cooldown: 0,
     lasers1: [],
@@ -68,6 +75,9 @@ const GAME_STATE = {
     enemies: [],
     enemyLasers: []
 };
+
+// Instance of Database
+database = firebase.database();
 
 function objectsIntersect(o1, o2) {
     return !(
@@ -468,6 +478,9 @@ function update() {
     const $container = document.querySelector(".game");
 
     if (GAME_STATE.gameOver) {
+        // writeScore(TEAM_SCORE);
+        writeScore();
+        returnLeaderboard();
         return;
     }
 
@@ -511,6 +524,17 @@ function destroyPlayer($container, player) {
     // const audio = new Audio("sound/sfx-lose.ogg");
     // audio.play();
 }
+
+/*------------ DATABASE FUNCTIONS ------------*/
+function writeScore(){
+    firebase.database().ref('users/' + "1234").set({
+        Name: TransformStream,
+        Value: 6,
+    });
+}
+
+//function returnLeaderboard(){
+//}
 
 
 /*------------ KEY EVENT HANDLERS ------------*/
