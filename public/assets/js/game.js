@@ -33,13 +33,6 @@ const ENEMY_VERTICAL_PADDING = 70;
 const ENEMY_VERTICAL_SPACING = 80;
 const ENEMY_COOLDOWN = 10.0;
 
-const TEAM_SCORE = {
-    teamName: "",
-    time: 0,
-    player1Score: GAME_STATE.score1,
-    player2Score: GAME_STATE.score2,
-}
-
 const GAME_STATE = {
     lastTime: Date.now(),
     gameOver: false,
@@ -76,8 +69,15 @@ const GAME_STATE = {
     enemyLasers: []
 };
 
+const TEAM_SCORE = {
+    teamName: "",
+    time: 0,
+    player1Score: GAME_STATE.score1,
+    player2Score: GAME_STATE.score2,
+};
+
 // Instance of Database
-database = firebase.database();
+// database = firebase.database();
 
 function objectsIntersect(o1, o2) {
     return !(
