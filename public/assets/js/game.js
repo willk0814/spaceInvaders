@@ -479,8 +479,8 @@ function update() {
 
     if (GAME_STATE.gameOver) {
         // writeScore(TEAM_SCORE);
-        writeScore();
-        returnLeaderboard();
+        // writeScore();
+        // returnLeaderboard();
         return;
     }
 
