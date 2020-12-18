@@ -526,6 +526,7 @@ function destroyPlayer($container, player) {
 }
 
 /*------------ DATABASE FUNCTIONS ------------*/
+var database = firebase.database();
 function writeScore(){
     firebase.database().ref('users/' + "1234").set({
         Name: TransformStream,
