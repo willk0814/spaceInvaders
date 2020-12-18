@@ -526,13 +526,13 @@ function destroyPlayer($container, player) {
 }
 
 /*------------ DATABASE FUNCTIONS ------------*/
-database = firebase.database();
-function writeScore(){
-    firebase.database().ref('users/' + "1234").set({
-        Name: "Tom",
-        Value: 6,
-    });
-}
+// database = firebase.database();
+// function writeScore(){
+//     firebase.database().ref('users/' + "1234").set({
+//         Name: "Tom",
+//         Value: 6,
+//     });
+// }
 
 //function returnLeaderboard(){
 //}
@@ -611,6 +611,9 @@ function onKeyUp(e) {
 }
 
 init();
+const preObject = document.getElementById('object');
+const dbRefObject = firebase.database().ref().child('object');
+dbRefObject.on('value', snap => console.log(snap.val()));
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
